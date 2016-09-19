@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="3">
+
+        <TextView
+            android:id="@+id/dialog_text"
+            android:layout_columnSpan="3"
+            android:layout_gravity="fill_horizontal"
+            android:paddingRight="@dimen/space_small_8"
+            android:layout_marginTop="@dimen/space_normal_16"
+            android:layout_marginBottom="@dimen/space_normal_16"
+            android:gravity="right"
+            android:textSize="@dimen/font_larger_32"/>
+
+        <Button
+            android:id="@+id/clear_btn"
+            android:layout_column="1"
+            android:textSize="@dimen/font_large_24"
+            android:text="C"/>
+
+        <Button
+            android:id="@+id/back_btn"
+            android:textSize="@dimen/font_large_24"
+            android:text="@string/back_shevron"/>
+
+        <Button
+            android:id="@+id/seven_btn"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:textSize="@dimen/font_large_24"
+            android:text="7"/>
+
+        <Button
+            android:id="@+id/eight_btn"
+            android:textSize="@dimen/font_large_24"
+            android:text="8"/>
+
+        <Button
+            android:id="@+id/nine_btn"
+            android:textSize="@dimen/font_large_24"
+            android:text="9"/>
+
+        <Button
+            android:id="@+id/four_btn"
+            android:textSize="@dimen/font_large_24"
+            android:text="4"/>
+
+        <Button
+            android:id="@+id/five_btn"
+            android:textSize="@dimen/font_large_24"
+            android:text="5"/>
+
+        <Button
+            android:id="@+id/six_btn"
+            android:textSize="@dimen/font_large_24"
+            android:text="6"/>
+
+        <Button
+            android:id="@+id/one_btn"
+            android:textSize="@dimen/font_large_24"
+            android:text="1"/>
+
+        <Button
+            android:id="@+id/two_btn"
+            android:textSize="@dimen/font_large_24"
+            android:text="2"/>
+
+        <Button
+            android:id="@+id/three_btn"
+            android:textSize="@dimen/font_large_24"
+            android:text="3"/>
+
+        <Button
+            android:id="@+id/zero_btn"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill_horizontal"
+            android:textSize="@dimen/font_large_24"
+            android:text="0"/>
+
+        <Button
+            android:id="@+id/point_btn"
+            android:textSize="@dimen/font_large_24"
+            android:text="."/>
+
+    </GridLayout>
+
+</LinearLayout>

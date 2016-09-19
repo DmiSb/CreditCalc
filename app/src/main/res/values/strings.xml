@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Кредитный калькулятор</string>
+
+    <string name="result_pay">Ежемесячный\nплатеж</string>
+    <string name="result_all_pay">Всего выплат</string>
+    <string name="result_over_pay">Сумма переплат</string>
+    <string name="result_over_percent">Процент переплат</string>
+
+    <string name="credit_date">Дата выдачи</string>
+    <string name="credit_sum">Сумма кредита</string>
+    <string name="credit_length">Срок, мес/лет</string>
+    <string name="credit_percent">Процентная ставка</string>
+
+    <string name="bottom_caption">Дополнительные параметры</string>
+
+    <string name="calc_by_sum">Расчет по сумме кредита</string>
+    <string name="calc_by_pay">Расчет по сумме платежа</string>
+    <string name="calc_annuity">Ануитетные платежи</string>
+    <string name="calc_differential">Дифференцированные платежи</string>
+    <string name="calc_first_only_percent">Первый платеж - только проценты</string>
+
+    <string name="ok_caption">Ok</string>
+    <string name="cancel_caption">Отмена</string>
+    <string name="back_shevron"><![CDATA[<-]]></string>
+
+    <string name="save_action">Сохранить</string>
+    <string name="send_e_mail_action">Отправить на E-mail</string>
+    <string name="credit_list_action">Список расчетов</string>
+    <string name="new_credit_action">Новый расчет</string>
+    <string name="settings_action">Настройки</string>
+    <string name="current_calc">Текущий расчет</string>
+
+
+</resources>

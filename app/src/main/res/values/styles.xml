@@ -1,0 +1,106 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"></style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"></style>
+
+    <style name="result">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/space_line_4</item>
+        <item name="android:layout_marginBottom">@dimen/space_line_4</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+
+    <style name="result.caption" parent="result">
+        <item name="android:textSize">@dimen/font_normal_16</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="result.value" parent="result">
+        <item name="android:layout_gravity">fill</item>
+        <item name="android:gravity">right|center_vertical</item>
+        <item name="android:textSize">@dimen/font_medium_20</item>
+    </style>
+
+    <style name="params">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/space_small_8</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+
+    <style name="params.rb" parent="params">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">@dimen/font_normal_16</item>
+    </style>
+    
+    <style name="calc_separator">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/size_line_1</item>
+        <item name="android:layout_marginLeft">@dimen/space_small_8</item>
+        <item name="android:layout_marginTop">@dimen/space_small_8</item>
+        <item name="android:layout_marginBottom">@dimen/space_small_8</item>
+        <item name="android:layout_marginRight">@dimen/space_line_4</item>
+        <item name="android:layout_columnSpan">3</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="credit_caption">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/font_normal_16</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+
+    <style name="credit_value">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">right</item>
+        <item name="android:textSize">@dimen/font_medium_20</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+
+    <style name="credit_edit_image">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/space_normal_16</item>
+        <item name="android:src">@drawable/ic_create_grey_24dp</item>
+    </style>
+    
+    <style name="credit_seek_bar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/space_small_8</item>
+    </style>
+
+    <style name="graphic_item">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textSize">@dimen/font_normal_16</item>
+    </style>
+
+    <style name="graphic_header">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minLines">2</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/font_normal_16</item>
+    </style>
+
+</resources>
