@@ -23,4 +23,8 @@ public interface ConstantManager {
     int SUM_INCREMENT = 50000;
     int LENGTH_INCREMENT = 6;
     double PERCENT_INCREMENT = 0.1;
+
+    String FONT_CONDENSED = "Roboto_Condensed";
+    String FONT_MEDIUM = "Roboto_Medium";
+    String FONT_REGULAR = "Roboto_Regular";
 }

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Grey color palette -->
-    <color name="primary">#9E9E9E</color>
-    <color name="primary_middle">#616161</color>
-    <color name="primary_dark">#424242</color>
+    <!-- Blue Grey color palette -->
+    <color name="primary_50">#ECEFF1</color>
+    <color name="primary_500">#607D8B</color>
+    <color name="primary_700">#455A64</color>
+    <color name="primary_900">#263238</color>
 
     <color name="white">#FFFFFF</color>
     <color name="accent">#FF4081</color>

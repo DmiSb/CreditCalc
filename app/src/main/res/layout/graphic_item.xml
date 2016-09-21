@@ -1,48 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/graphic_item"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/size_medium_48"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="com.dmisb.creditcalc.utils.FormatUtil"/>
+        <variable
+            name="calcModel"
+            type="com.dmisb.creditcalc.data.models.CalcModel"/>
+    </data>
 
     <LinearLayout
+        android:id="@+id/graphic_item"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/space_small_8"
-        android:orientation="horizontal">
+        android:layout_height="@dimen/size_medium_48"
+        android:orientation="vertical"
+        android:theme="@style/AppThemeOverlay"
+        android:background="@color/primary_50">
 
-        <TextView
-            android:id="@+id/graphic_date"
-            style="@style/graphic_item"
-            android:layout_weight="0.25"
-            android:layout_marginLeft="@dimen/space_small_8"
-            android:gravity="center"
-            android:text="Период"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/space_small_8"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/graphic_percent"
-            style="@style/graphic_item"
-            android:layout_weight="0.4"
-            android:gravity="right|center_vertical"
-            android:text="Проценты"/>
+            <TextView
+                android:id="@+id/graphic_date"
+                style="@style/graphic_item"
+                android:layout_weight="0.25"
+                android:layout_marginLeft="@dimen/space_small_8"
+                android:gravity="center"
+                android:text="@{FormatUtil.periodFormat(calcModel.data)}"
+                app:font="@{`Roboto_Condensed`}"/>
 
-        <TextView
-            android:id="@+id/graphic_pay"
-            style="@style/graphic_item"
-            android:layout_weight="0.4"
-            android:layout_marginRight="@dimen/space_small_8"
-            android:gravity="right|center_vertical"
-            android:text="Кредит"/>
+            <TextView
+                android:id="@+id/graphic_percent"
+                style="@style/graphic_item"
+                android:layout_weight="0.4"
+                android:gravity="right|center_vertical"
+                android:text="@{FormatUtil.sumFormat(calcModel.payPercent)}"
+                app:font="@{`Roboto_Condensed`}"/>
+
+            <TextView
+                android:id="@+id/graphic_pay"
+                style="@style/graphic_item"
+                android:layout_weight="0.4"
+                android:layout_marginRight="@dimen/space_small_8"
+                android:gravity="right|center_vertical"
+                android:text="@{FormatUtil.sumFormat(calcModel.payDebt)}"
+                app:font="@{`Roboto_Condensed`}"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_line_2"
+            android:layout_marginLeft="@dimen/space_normal_16"
+            android:layout_marginRight="@dimen/space_normal_16"
+            android:background="@color/primary_500"/>
 
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/size_line_2"
-        android:layout_marginLeft="@dimen/space_normal_16"
-        android:layout_marginRight="@dimen/space_normal_16"
-        android:background="@color/primary"/>
-
-</LinearLayout>
+</layout>

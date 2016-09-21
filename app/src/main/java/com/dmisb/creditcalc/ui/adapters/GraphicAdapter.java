@@ -1,54 +1,52 @@
 package com.dmisb.creditcalc.ui.adapters;
 
-import android.content.Context;
-import android.support.v7.widget.CardView;
+import android.databinding.BindingAdapter;
+import android.databinding.DataBindingUtil;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dmisb.creditcalc.R;
 import com.dmisb.creditcalc.data.managers.CalcManager;
 import com.dmisb.creditcalc.data.managers.DataManager;
 import com.dmisb.creditcalc.data.models.CalcModel;
-
-import java.text.DateFormat;
-import java.text.DecimalFormat;
+import com.dmisb.creditcalc.databinding.GraphicItemBinding;
 
 /**
  * Adapter for graphic of all credit pays
  */
 public class GraphicAdapter extends RecyclerView.Adapter<GraphicAdapter.GraphicViewHolder> {
 
-    private Context mContext;
     private CalcManager mCalcManager;
-    private DateFormat mShortFormat;
-    private DecimalFormat mSumFormat;
 
     public GraphicAdapter(CalcManager calcManager) {
-        mCalcManager = calcManager;
 
-        DataManager dataManager = DataManager.getInstance();
-        mShortFormat = dataManager.getShortFormat();
-        mSumFormat = dataManager.getSumFormat();
+        mCalcManager = calcManager;
     }
 
     @Override
     public GraphicViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        mContext = parent.getContext();
-        View convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.graphic_item, parent, false);
-        return new GraphicViewHolder(convertView);
+
+        /* source https://habrahabr.ru/company/dataart/blog/267735/
+
+           LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+           GraphicItemBinding binding = GraphicItemBinding.inflate(inflater, parent, false);
+           return new GraphicViewHolder(binding.getRoot());
+        */
+
+        return new GraphicViewHolder(LayoutInflater
+                .from(parent.getContext())
+                .inflate(R.layout.graphic_item, parent, false));
     }
 
     @Override
     public void onBindViewHolder(GraphicViewHolder holder, int position) {
 
         CalcModel calcModel = mCalcManager.getCalcList().get(position);
-        holder.mGraphicDate.setText(mShortFormat.format(calcModel.data));
-        holder.mGraphicPercent.setText(mSumFormat.format(calcModel.payPercent));
-        holder.mGraphicPay.setText(mSumFormat.format(calcModel.payDebt));
+        holder.mBinding.setCalcModel(calcModel);
     }
 
     @Override
@@ -56,18 +54,28 @@ public class GraphicAdapter extends RecyclerView.Adapter<GraphicAdapter.GraphicV
         return mCalcManager.getCalcList().size();
     }
 
-    public static class GraphicViewHolder extends RecyclerView.ViewHolder {
+    protected static class GraphicViewHolder extends RecyclerView.ViewHolder {
 
-        protected LinearLayout mGraphicItem;
-        protected TextView mGraphicDate, mGraphicPercent, mGraphicPay;
+        protected GraphicItemBinding mBinding;
 
-        public GraphicViewHolder(View itemView) {
+        protected GraphicViewHolder(View itemView) {
             super(itemView);
+            mBinding = DataBindingUtil.bind(itemView);
+        }
+    }
 
-            mGraphicItem = (LinearLayout) itemView.findViewById(R.id.graphic_item);
-            mGraphicDate = (TextView) itemView.findViewById(R.id.graphic_date);
-            mGraphicPercent = (TextView) itemView.findViewById(R.id.graphic_percent);
-            mGraphicPay = (TextView) itemView.findViewById(R.id.graphic_pay);
+    /**
+     * Font Binding, example:  app:font="@{`Roboto_Condensed`}"
+     *
+     * @param textView - view
+     * @param fontName - short name font
+     */
+    @BindingAdapter({"bind:font"})
+    public static void setFont(TextView textView, String fontName) {
+        Typeface typeface = DataManager.getInstance().getFont(fontName);
+        if (typeface != null) {
+            textView.setTypeface(typeface);
         }
     }
 }
+

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data/>
+
+    <GridLayout
+        android:id="@+id/result_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/space_normal_16"
+        android:paddingRight="@dimen/space_normal_16"
+        android:paddingTop="@dimen/space_small_8"
+        android:paddingBottom="@dimen/space_small_8"
+        android:elevation="@dimen/card_radius_4"
+        android:background="@color/primary_900"
+        android:columnCount="2">
+
+        <TextView
+            android:id="@+id/result_pay_caption"
+            style="@style/result.caption"
+            android:text="@string/result_pay"
+            app:font="@{`Roboto_Condensed`}"/>
+
+        <TextView
+            android:id="@+id/result_pay"
+            style="@style/result.value"
+            app:font="@{`Roboto_Condensed`}"/>
+
+        <TextView
+            style="@style/result.caption"
+            android:text="@string/result_all_pay"
+            app:font="@{`Roboto_Condensed`}"/>
+
+        <TextView
+            android:id="@+id/result_all_pay"
+            style="@style/result.value"
+            app:font="@{`Roboto_Condensed`}"/>
+
+        <TextView
+            style="@style/result.caption"
+            android:text="@string/result_over_pay"
+            app:font="@{`Roboto_Condensed`}"/>
+
+        <TextView
+            android:id="@+id/result_over_pay"
+            style="@style/result.value"
+            app:font="@{`Roboto_Condensed`}"/>
+
+        <TextView
+            style="@style/result.caption"
+            android:text="@string/result_over_percent"
+            app:font="@{`Roboto_Condensed`}"/>
+
+        <TextView
+            android:id="@+id/result_over_percent"
+            style="@style/result.value"
+            app:font="@{`Roboto_Condensed`}"/>
+
+    </GridLayout>
+
+</layout>

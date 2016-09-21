@@ -102,6 +102,7 @@ public class CreditValueDialog extends DialogFragment implements View.OnClickLis
         if (mValueType == ConstantManager.ARG_TYPE_LENGTH) {
             mPoint.setEnabled(false);
         }
+
         return builder.create();
     }
 
@@ -128,6 +129,8 @@ public class CreditValueDialog extends DialogFragment implements View.OnClickLis
         CreditValueDialog dialog = new CreditValueDialog();
         dialog.setArguments(args);
         dialog.setTargetFragment(null, 0);
+        // Don`t work
+        // dialog.setStyle(DialogFragment.STYLE_NORMAL, R.style.AppThemeOverlay);
         return dialog;
     }
 

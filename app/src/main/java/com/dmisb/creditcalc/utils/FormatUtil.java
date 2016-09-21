@@ -43,4 +43,15 @@ public class FormatUtil {
 
         return DataManager.getInstance().getDateFormat().format(value);
     }
+
+    /**
+     * Returns date value to formatted string in view "MM.yyyy"
+     *
+     * @param value - value of date
+     * @return - formatted string
+     */
+    public static String periodFormat(Date value) {
+
+        return DataManager.getInstance().getShortFormat().format(value);
+    }
 }

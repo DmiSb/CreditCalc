@@ -19,9 +19,21 @@
     <string name="calc_differential">Дифференцированные платежи</string>
     <string name="calc_first_only_percent">Первый платеж - только проценты</string>
 
-    <string name="ok_caption">Ok</string>
+    <string name="ok_caption">OK</string>
     <string name="cancel_caption">Отмена</string>
-    <string name="back_shevron"><![CDATA[<-]]></string>
+    <string name="back_char"><![CDATA[<-]]></string>
+    <string name="clear_char">C</string>
+    <string name="punct_char">.</string>
+    <string name="_0">0</string>
+    <string name="_1">1</string>
+    <string name="_2">2</string>
+    <string name="_3">3</string>
+    <string name="_4">4</string>
+    <string name="_5">5</string>
+    <string name="_6">6</string>
+    <string name="_7">7</string>
+    <string name="_8">8</string>
+    <string name="_9">9</string>
 
     <string name="save_action">Сохранить</string>
     <string name="send_e_mail_action">Отправить на E-mail</string>
@@ -30,5 +42,9 @@
     <string name="settings_action">Настройки</string>
     <string name="current_calc">Текущий расчет</string>
 
+    <string name="graphic_caption_app">График платежей</string>
+    <string name="graphic_caption_period">Период\nоплаты</string>
+    <string name="graphic_caption_percent">Оплата\nпроцентов</string>
+    <string name="graphic_caption_pays">Гашение\nкредита</string>
 
 </resources>

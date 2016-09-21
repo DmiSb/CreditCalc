@@ -1,6 +1,7 @@
 package com.dmisb.creditcalc.data.managers;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Build;
 
 import com.dmisb.creditcalc.utils.CalcCreditApp;
@@ -27,10 +28,13 @@ public class DataManager {
     private DecimalFormat mSumFormat, mPercentFormat;
     private DateFormat mDateFormat, mShortFormat;
 
+    private Typeface mCondensedFont, mMediumFont, mRegilarFont;
+
+
     /**
      * Created DataManager
      */
-    public DataManager() {
+    private DataManager() {
         this.mCalcManager = new CalcManager();
         this.mContext = CalcCreditApp.getContext();
         this.mPreferencesManager = new PreferencesManager();
@@ -45,6 +49,13 @@ public class DataManager {
         mPercentFormat = new DecimalFormat("0.0");
         mDateFormat = new SimpleDateFormat("dd.MM.yyyy");
         mShortFormat = new SimpleDateFormat("MM.yyyy");
+
+        mCondensedFont = Typeface.createFromAsset(mContext.getAssets(),
+            "fonts/" + ConstantManager.FONT_CONDENSED + ".ttf");
+        mMediumFont = Typeface.createFromAsset(mContext.getAssets(),
+            "fonts/" + ConstantManager.FONT_MEDIUM + ".ttf");
+        mRegilarFont = Typeface.createFromAsset(mContext.getAssets(),
+            "fonts/" + ConstantManager.FONT_REGULAR + ".ttf");
     }
 
     /**
@@ -129,5 +140,18 @@ public class DataManager {
      */
     public DateFormat getShortFormat() {
         return mShortFormat;
+    }
+
+    public Typeface getFont(String typeFont) {
+        switch (typeFont) {
+            case ConstantManager.FONT_CONDENSED:
+                return mCondensedFont;
+            case ConstantManager.FONT_MEDIUM:
+                return mMediumFont;
+            case ConstantManager.FONT_REGULAR:
+                return mRegilarFont;
+            default:
+                return null;
+        }
     }
 }

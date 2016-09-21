@@ -1,73 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.v4.widget.DrawerLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.aktivities.MainActivity"
-    android:id="@+id/navigation_drawer"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <android.support.design.widget.CoordinatorLayout
-        android:id="@+id/coordinator_container"
+    <data/>
+
+    <android.support.v4.widget.DrawerLayout
+        tools:context=".ui.aktivities.MainActivity"
+        android:id="@+id/navigation_drawer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.aktivities.MainActivity"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="true"
+        tools:openDrawer="start">
 
-        <android.support.design.widget.AppBarLayout
-            android:id="@+id/appbar_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/AppTheme.AppBarOverlay">
-
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:theme="@style/AppTheme.PopupOverlay"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:titleTextColor="@color/white"
-                app:layout_collapseMode="pin"/>
-
-        </android.support.design.widget.AppBarLayout>
-
-        <LinearLayout
-            android:id="@+id/content_info"
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/coordinator_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingTop="?attr/actionBarSize">
+            tools:context=".ui.aktivities.MainActivity"
+            android:fitsSystemWindows="true">
 
-            <include layout="@layout/result_info"/>
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/appbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <include layout="@layout/credit_info"/>
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:titleTextAppearance="@style/ToolBarStyle"
+                    app:layout_collapseMode="pin"/>
 
-        </LinearLayout>
+            </android.support.design.widget.AppBarLayout>
 
-        <include layout="@layout/_bottom_sheet"/>
+            <LinearLayout
+                android:id="@+id/content_info"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingTop="?attr/actionBarSize">
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/space_normal_16"
-            android:src="@drawable/ic_playlist_add_check_white_24dp"
-            app:layout_anchor="@id/bottom_sheet"
-            app:layout_anchorGravity="top|right"/>
+                <include
+                    android:id="@+id/result_layout"
+                    layout="@layout/_result_info"/>
 
-    </android.support.design.widget.CoordinatorLayout>
+                <include
+                    android:id="@+id/credit_layout"
+                    layout="@layout/_credit_info"/>
 
-    <android.support.design.widget.NavigationView
-        android:id="@+id/navigation_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/drawer_header"
-        app:menu="@menu/drawer_menu">
+            </LinearLayout>
 
-    </android.support.design.widget.NavigationView>
+            <include
+                android:id="@+id/bottom_layout"
+                layout="@layout/_bottom_sheet"/>
 
-</android.support.v4.widget.DrawerLayout>
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/space_normal_16"
+                android:src="@drawable/ic_playlist_add_check_white_24dp"
+                app:layout_anchor="@id/bottom_layout"
+                app:layout_anchorGravity="top|right"/>
+
+        </android.support.design.widget.CoordinatorLayout>
+
+        <android.support.design.widget.NavigationView
+            android:id="@+id/navigation_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            android:theme="@style/AppThemeOverlay"
+            app:headerLayout="@layout/drawer_header"
+            app:menu="@menu/drawer_menu"
+            app:itemTextColor="@color/primary_900"
+            app:itemIconTint="@color/primary_900"
+            app:itemTextAppearance="@style/DrawerMenuStyle">
+
+        </android.support.design.widget.NavigationView>
+
+    </android.support.v4.widget.DrawerLayout>
+
+</layout>
