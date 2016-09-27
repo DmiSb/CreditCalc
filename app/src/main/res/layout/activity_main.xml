@@ -12,8 +12,7 @@
         android:id="@+id/navigation_drawer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        tools:openDrawer="start">
+        android:fitsSystemWindows="true">
 
         <android.support.design.widget.CoordinatorLayout
             android:id="@+id/coordinator_container"
@@ -25,12 +24,15 @@
             <android.support.design.widget.AppBarLayout
                 android:id="@+id/appbar_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true">
 
                 <android.support.v7.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
+                    android:titleTextColor="@color/white"
+                    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                     app:titleTextAppearance="@style/ToolBarStyle"
                     app:layout_collapseMode="pin"/>
 
@@ -74,7 +76,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:fitsSystemWindows="true"
-            android:theme="@style/AppThemeOverlay"
+
             app:headerLayout="@layout/drawer_header"
             app:menu="@menu/drawer_menu"
             app:itemTextColor="@color/primary_900"

@@ -11,9 +11,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/space_normal_16"
-        android:theme="@style/AppThemeOverlay"
-        android:background="@color/primary_50">
+        android:padding="@dimen/space_normal_16">
 
         <LinearLayout
             android:id="@+id/credit_sum_layout"

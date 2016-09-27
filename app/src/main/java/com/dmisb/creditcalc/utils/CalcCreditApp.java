@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import com.facebook.stetho.Stetho;
+
 /**
  * Extension for Application
  */
@@ -19,6 +21,8 @@ public class CalcCreditApp extends Application {
 
         sContext = this;
         sSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        Stetho.initializeWithDefaults(this);
     }
 
     /**

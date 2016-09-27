@@ -1,18 +1,14 @@
 package com.dmisb.creditcalc.ui.adapters;
 
-import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
-import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.dmisb.creditcalc.R;
 import com.dmisb.creditcalc.data.managers.CalcManager;
-import com.dmisb.creditcalc.data.managers.DataManager;
-import com.dmisb.creditcalc.data.models.CalcModel;
+import com.dmisb.creditcalc.data.models.PayModel;
 import com.dmisb.creditcalc.databinding.GraphicItemBinding;
 
 /**
@@ -45,13 +41,13 @@ public class GraphicAdapter extends RecyclerView.Adapter<GraphicAdapter.GraphicV
     @Override
     public void onBindViewHolder(GraphicViewHolder holder, int position) {
 
-        CalcModel calcModel = mCalcManager.getCalcList().get(position);
-        holder.mBinding.setCalcModel(calcModel);
+        PayModel payModel = mCalcManager.getPayList().get(position);
+        holder.mBinding.setPayModel(payModel);
     }
 
     @Override
     public int getItemCount() {
-        return mCalcManager.getCalcList().size();
+        return mCalcManager.getPayList().size();
     }
 
     protected static class GraphicViewHolder extends RecyclerView.ViewHolder {
@@ -61,20 +57,6 @@ public class GraphicAdapter extends RecyclerView.Adapter<GraphicAdapter.GraphicV
         protected GraphicViewHolder(View itemView) {
             super(itemView);
             mBinding = DataBindingUtil.bind(itemView);
-        }
-    }
-
-    /**
-     * Font Binding, example:  app:font="@{`Roboto_Condensed`}"
-     *
-     * @param textView - view
-     * @param fontName - short name font
-     */
-    @BindingAdapter({"bind:font"})
-    public static void setFont(TextView textView, String fontName) {
-        Typeface typeface = DataManager.getInstance().getFont(fontName);
-        if (typeface != null) {
-            textView.setTypeface(typeface);
         }
     }
 }

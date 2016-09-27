@@ -22,6 +22,8 @@
                 android:id="@+id/graphic_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
+                android:titleTextColor="@color/white"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                 app:titleTextAppearance="@style/ToolBarStyle"
                 app:layout_collapseMode="pin"/>
 
@@ -37,7 +39,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="@color/primary_900">
+                android:theme="@style/AppThemeOverlay"
+                android:background="@color/primary_800">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -97,9 +100,14 @@
 
             </LinearLayout>
 
-            <include
-                android:id="@+id/graphic_list"
-                layout="@layout/graphic_list"/>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/graphic_recycled_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/space_line_4"
+                android:paddingRight="@dimen/space_line_4">
+
+            </android.support.v7.widget.RecyclerView>
 
         </LinearLayout>
 

@@ -47,4 +47,9 @@
     <string name="graphic_caption_percent">Оплата\nпроцентов</string>
     <string name="graphic_caption_pays">Гашение\nкредита</string>
 
+    <string name="e_mail">E-mail для отчетов</string>
+
+    <string name="saved_setting">Настройки сохранены</string>
+    <string name="saved_calc">Расчет сохранен</string>
+
 </resources>

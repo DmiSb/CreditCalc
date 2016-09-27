@@ -6,7 +6,7 @@
             <group android:checkableBehavior="none">
 
                 <item android:id="@+id/save_action"
-                    android:icon="@drawable/ic_done_gray_24dp"
+                    android:icon="@drawable/ic_save_gray_24dp"
                     android:title="@string/save_action"/>
 
                 <item android:id="@+id/send_action"
@@ -17,13 +17,12 @@
     </item>
 
     <group android:checkableBehavior="none">
-        <item android:id="@+id/credit_list"
+        <item android:id="@+id/calc_list"
             android:icon="@drawable/ic_list_gray_24dp"
             android:title="@string/credit_list_action"/>
 
         <item android:id="@+id/new_credit"
             android:icon="@drawable/ic_add_circle_gray_24dp"
-            android:enabled="false"
             android:title="@string/new_credit_action"/>
 
         <item android:id="@+id/settings"

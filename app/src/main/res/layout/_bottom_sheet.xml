@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:theme="@style/AppThemeOverlay"
         android:background="@color/primary_700"
         app:behavior_hideable="true"
         app:behavior_peekHeight="@dimen/size_medium_48"
@@ -24,6 +25,7 @@
             android:gravity="center_vertical|left"
             android:paddingLeft="@dimen/space_normal_16"
             android:textSize="@dimen/space_normal_16"
+            android:textColor="@color/white"
             android:text="@string/bottom_caption"
             app:font="@{`Roboto_Condensed`}"/>
 

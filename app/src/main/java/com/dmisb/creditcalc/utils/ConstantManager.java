@@ -1,7 +1,5 @@
 package com.dmisb.creditcalc.utils;
 
-import java.io.Serializable;
-
 /**
  * Constant Manager
  */
@@ -27,4 +25,15 @@ public interface ConstantManager {
     String FONT_CONDENSED = "Roboto_Condensed";
     String FONT_MEDIUM = "Roboto_Medium";
     String FONT_REGULAR = "Roboto_Regular";
+
+    String SETTING_EMAIL = "SETTING_EMAIL";
+
+    String FIELD_PRIMARY = "INTEGER PRIMARY KEY AUTOINCREMENT";
+    String FIELD_INTEGER = "INTEGER";
+    String FIELD_DATETIME = "DATETIME";
+    String FIELD_NUMERIC_15_2 = "NUMERIC(15,2)";
+    String FIELD_NUMERIC_5_1 = "NUMERIC(5,1)";
+    String FIELD_NVARCHAR_40 = "NVARCHAR(40)";
+    String FIELD_NVARCHAR_200 = "NVARCHAR(200)";
+
 }

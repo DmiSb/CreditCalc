@@ -78,4 +78,24 @@ public class PreferencesManager {
     public double getCreditPercent() {
         return Double.valueOf(mSharedPreferences.getString(ConstantManager.CREDIT_PERCENT_KEY, "11.9"));
     }
+
+    /**
+     * Returns saved E-mail for sending report
+     *
+     * @return - E-mail
+     */
+    public String getSettingEmail() {
+        return mSharedPreferences.getString(ConstantManager.SETTING_EMAIL, "");
+    }
+
+    /**
+     * Saved E-mail for sending report from SettingActivity
+     *
+     * @param email - E-mail
+     */
+    public void setSettingEmail(String email) {
+        SharedPreferences.Editor editor = mSharedPreferences.edit();
+        editor.putString(ConstantManager.SETTING_EMAIL, email);
+        editor.apply();
+    }
 }

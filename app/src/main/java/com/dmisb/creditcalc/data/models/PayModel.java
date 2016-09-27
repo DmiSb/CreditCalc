@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Model for calculation pays
  */
-public class CalcModel {
+public class PayModel {
 
     // Date of pay
     public Date data;

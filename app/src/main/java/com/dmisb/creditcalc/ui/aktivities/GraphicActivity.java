@@ -12,6 +12,7 @@ import com.dmisb.creditcalc.data.managers.DataManager;
 import com.dmisb.creditcalc.databinding.ActivityGraphicBinding;
 import com.dmisb.creditcalc.ui.adapters.GraphicAdapter;
 import com.dmisb.creditcalc.utils.ConstantManager;
+import com.dmisb.creditcalc.utils.FormatUtil;
 
 public class GraphicActivity extends AppCompatActivity {
 
@@ -27,8 +28,8 @@ public class GraphicActivity extends AppCompatActivity {
         setupToolBar();
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        mBinding.graphicList.graphicRecycledView.setLayoutManager(linearLayoutManager);
-        mBinding.graphicList.graphicRecycledView.setHasFixedSize(true);
+        mBinding.graphicRecycledView.setLayoutManager(linearLayoutManager);
+        mBinding.graphicRecycledView.setHasFixedSize(true);
         showGraphic();
 
         Log.d(TAG, "onCreate");
@@ -52,13 +53,13 @@ public class GraphicActivity extends AppCompatActivity {
     private void showGraphic() {
 
         DataManager dataManager = DataManager.getInstance();
-        String value = dataManager.getSumFormat().format(dataManager.getCalcManager().getAllPercentPay());
+        String value = FormatUtil.sumFormat(dataManager.getCalcManager().getAllPercentPay());
         mBinding.allPercent.setText(value);
 
-        value = dataManager.getSumFormat().format(dataManager.getCalcManager().getAllDebtPay());
+        value = FormatUtil.sumFormat(dataManager.getCalcManager().getAllDebtPay());
         mBinding.allPay.setText(value);
 
         GraphicAdapter graphicAdapter = new GraphicAdapter(DataManager.getInstance().getCalcManager());
-        mBinding.graphicList.graphicRecycledView.swapAdapter(graphicAdapter, false);
+        mBinding.graphicRecycledView.swapAdapter(graphicAdapter, false);
     }
 }

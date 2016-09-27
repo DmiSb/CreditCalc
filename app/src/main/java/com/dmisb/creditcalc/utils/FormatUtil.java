@@ -1,13 +1,28 @@
 package com.dmisb.creditcalc.utils;
 
-import com.dmisb.creditcalc.data.managers.DataManager;
-
+import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
  * FormatUtil
  */
 public class FormatUtil {
+
+    private static DecimalFormat sSumFormat, sPercentFormat;
+    private static DateFormat sDateFormat, sShortFormat;
+
+    /**
+     * Initialize formatting methods
+     */
+    public static void initFormat() {
+
+        sSumFormat = new DecimalFormat("#,##0.00");
+        sPercentFormat = new DecimalFormat("0.0");
+        sDateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        sShortFormat = new SimpleDateFormat("MM.yyyy");
+    }
 
     /**
      * Returns double value of currency to formatted string
@@ -17,7 +32,7 @@ public class FormatUtil {
      */
     public static String sumFormat(double value) {
 
-        String result = DataManager.getInstance().getSumFormat().format(value);
+        String result = sSumFormat.format(value);
         return result.replace(',', '.');
     }
 
@@ -29,7 +44,7 @@ public class FormatUtil {
      */
     public static String percentFormat(double value) {
 
-        String result = DataManager.getInstance().getPercentFormat().format(value);
+        String result = sPercentFormat.format(value);
         return result.replace(',', '.');
     }
 
@@ -41,7 +56,7 @@ public class FormatUtil {
      */
     public static String dateFormat(Date value) {
 
-        return DataManager.getInstance().getDateFormat().format(value);
+        return sDateFormat.format(value);
     }
 
     /**
@@ -52,6 +67,10 @@ public class FormatUtil {
      */
     public static String periodFormat(Date value) {
 
-        return DataManager.getInstance().getShortFormat().format(value);
+        return sShortFormat.format(value);
+    }
+
+    public static DateFormat getDateFormat() {
+        return sDateFormat;
     }
 }

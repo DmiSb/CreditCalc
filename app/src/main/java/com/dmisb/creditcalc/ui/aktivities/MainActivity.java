@@ -1,36 +1,33 @@
 package com.dmisb.creditcalc.ui.aktivities;
 
 import android.content.Intent;
-import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
-import android.graphics.Typeface;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.CheckBox;
-import android.widget.RadioButton;
 import android.widget.SeekBar;
-import android.widget.TextView;
 
 import com.dmisb.creditcalc.R;
 import com.dmisb.creditcalc.data.managers.CalcManager;
 import com.dmisb.creditcalc.data.managers.DataManager;
 import com.dmisb.creditcalc.databinding.ActivityMainBinding;
-import com.dmisb.creditcalc.ui.fragments.CreditValueDialog;
+import com.dmisb.creditcalc.ui.fragments.EditValueDialog;
 import com.dmisb.creditcalc.utils.ConstantManager;
 import com.dmisb.creditcalc.utils.FormatUtil;
 
 import java.util.Date;
 
-public class MainActivity extends AppCompatActivity
-        implements View.OnClickListener, SeekBar.OnSeekBarChangeListener, CreditValueDialog.NoticeDialogListener {
+public class MainActivity extends BaseActivity
+        implements
+            View.OnClickListener,
+            SeekBar.OnSeekBarChangeListener,
+            EditValueDialog.NoticeDialogListener {
 
     private static final String TAG = ConstantManager.TAG_PREFIX + "MainActivity";
 
@@ -212,6 +209,17 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
+    public void onBackPressed() {
+        Log.d(TAG, "onBackPressed");
+
+        if(mBinding.navigationDrawer.isDrawerOpen(GravityCompat.START)) {
+            mBinding.navigationDrawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
     public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
         switch (seekBar.getId()) {
             case R.id.credit_sum_sb:
@@ -269,36 +277,6 @@ public class MainActivity extends AppCompatActivity
     }
 
     /**
-     * Font Binding, example:  app:font="@{`Roboto_Condensed`}"
-     *
-     * @param textView - view
-     * @param fontName - short name font
-     */
-    @BindingAdapter({"bind:font"})
-    public static void setFont(TextView textView, String fontName) {
-        Typeface typeface = DataManager.getInstance().getFont(fontName);
-        if (typeface != null) {
-            textView.setTypeface(typeface);
-        }
-    }
-
-    @BindingAdapter({"bind:font"})
-    public static void setFont(RadioButton radioButton, String fontName) {
-        Typeface typeface = DataManager.getInstance().getFont(fontName);
-        if (typeface != null) {
-            radioButton.setTypeface(typeface);
-        }
-    }
-
-    @BindingAdapter({"bind:font"})
-    public static void setFont(CheckBox checkBox, String fontName) {
-        Typeface typeface = DataManager.getInstance().getFont(fontName);
-        if (typeface != null) {
-            checkBox.setTypeface(typeface);
-        }
-    }
-
-    /**
      * Setup Toolbar
      */
     private void setupToolBar() {
@@ -331,7 +309,7 @@ public class MainActivity extends AppCompatActivity
                         case R.id.send_action:
 
                             break;
-                        case R.id.credit_list:
+                        case R.id.calc_list:
 
                             break;
                         case R.id.new_credit:
@@ -389,7 +367,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void setCreditSum(double creditSum) {
-        String value = FormatUtil.sumFormat(creditSum) + mDataManager.getCurrensy();
+        String value = FormatUtil.sumFormat(creditSum);
         mBinding.creditLayout.creditSumValue.setText(value);
         mCalcManager.setSum(creditSum);
     }
@@ -421,18 +399,15 @@ public class MainActivity extends AppCompatActivity
 
     private void setCreditValues() {
 
-        String value = FormatUtil.sumFormat(mCalcManager.getMonthPay()) +
-                mDataManager.getCurrensy();
+        String value = FormatUtil.sumFormat(mCalcManager.getMonthPay());
         mBinding.resultLayout.resultPay.setText(value);
 
         value = FormatUtil.sumFormat(
-                mCalcManager.getAllPercentPay() + mCalcManager.getSum()) +
-                mDataManager.getCurrensy();
+                mCalcManager.getAllPercentPay() + mCalcManager.getSum());
         mBinding.resultLayout.resultAllPay.setText(value);
 
         value = FormatUtil.sumFormat(
-                mCalcManager.getAllPercentPay()) +
-                mDataManager.getCurrensy();
+                mCalcManager.getAllPercentPay());
         mBinding.resultLayout.resultOverPay.setText(value);
 
         value = FormatUtil.percentFormat(
@@ -443,21 +418,21 @@ public class MainActivity extends AppCompatActivity
     private void getCreditSumVaue(double value, SeekBar seekBar){
 
         setListenSeekBar(false, true);
-        DialogFragment dialog = CreditValueDialog.newSumInstance(value);
+        DialogFragment dialog = EditValueDialog.newSumInstance(value);
         dialog.show(getSupportFragmentManager(), "value_dialog");
     }
 
     private void getCreditPercentVaue(double value, SeekBar seekBar){
 
         setListenSeekBar(false, true);
-        DialogFragment dialog = CreditValueDialog.newPercentInstance(value);
+        DialogFragment dialog = EditValueDialog.newPercentInstance(value);
         dialog.show(getSupportFragmentManager(), "value_dialog");
     }
 
     private void getCreditLengthVaue(int value, SeekBar seekBar){
 
         setListenSeekBar(false, true);
-        DialogFragment dialog = CreditValueDialog.newLengthInstance(value);
+        DialogFragment dialog = EditValueDialog.newLengthInstance(value);
         dialog.show(getSupportFragmentManager(), "value_dialog");
     }
 

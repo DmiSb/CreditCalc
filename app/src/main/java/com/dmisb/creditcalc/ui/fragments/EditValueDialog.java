@@ -1,12 +1,10 @@
 package com.dmisb.creditcalc.ui.fragments;
 
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
@@ -15,16 +13,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.dmisb.creditcalc.R;
-import com.dmisb.creditcalc.ui.aktivities.MainActivity;
 import com.dmisb.creditcalc.utils.ConstantManager;
 import com.dmisb.creditcalc.utils.FormatUtil;
 
-import java.text.DecimalFormat;
-
 /**
- * CreditValueDialog
+ * EditValueDialog
  */
-public class CreditValueDialog extends DialogFragment implements View.OnClickListener {
+public class EditValueDialog extends DialogFragment implements View.OnClickListener {
 
     private TextView mValueText;
     private double mValue;
@@ -48,13 +43,13 @@ public class CreditValueDialog extends DialogFragment implements View.OnClickLis
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                         if (checkValue()) {
-                            mListener.onDialogPositiveClick(CreditValueDialog.this, mValue, mValueType);
+                            mListener.onDialogPositiveClick(EditValueDialog.this, mValue, mValueType);
                         }
                     }
                 })
                 .setNegativeButton(R.string.cancel_caption, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        mListener.onDialogNegativeClick(CreditValueDialog.this);
+                        mListener.onDialogNegativeClick(EditValueDialog.this);
                     }
                 });
 
@@ -124,9 +119,9 @@ public class CreditValueDialog extends DialogFragment implements View.OnClickLis
      * @param args - input arguments
      * @return - Fragment Dialog
      */
-    private static CreditValueDialog newInstance(Bundle args) {
+    private static EditValueDialog newInstance(Bundle args) {
 
-        CreditValueDialog dialog = new CreditValueDialog();
+        EditValueDialog dialog = new EditValueDialog();
         dialog.setArguments(args);
         dialog.setTargetFragment(null, 0);
         // Don`t work
@@ -140,7 +135,7 @@ public class CreditValueDialog extends DialogFragment implements View.OnClickLis
      * @param sum - input value sum
      * @return - Fragment Dialog
      */
-    public static CreditValueDialog newSumInstance(double sum) {
+    public static EditValueDialog newSumInstance(double sum) {
         Bundle args = new Bundle();
         args.putSerializable(ConstantManager.ARG_VALUE, sum);
         args.putSerializable(ConstantManager.ARG_TYPE, ConstantManager.ARG_TYPE_SUM);
@@ -154,7 +149,7 @@ public class CreditValueDialog extends DialogFragment implements View.OnClickLis
      * @param percent - input value percent
      * @return - Fragment Dialog
      */
-    public static CreditValueDialog newPercentInstance(double percent) {
+    public static EditValueDialog newPercentInstance(double percent) {
         Bundle args = new Bundle();
         args.putSerializable(ConstantManager.ARG_VALUE, percent);
         args.putSerializable(ConstantManager.ARG_TYPE, ConstantManager.ARG_TYPE_PERCENT);
@@ -168,7 +163,7 @@ public class CreditValueDialog extends DialogFragment implements View.OnClickLis
      * @param length - input value length
      * @return - Fragment Dialog
      */
-    public static CreditValueDialog newLengthInstance(int length) {
+    public static EditValueDialog newLengthInstance(int length) {
         Bundle args = new Bundle();
         args.putSerializable(ConstantManager.ARG_VALUE, length);
         args.putSerializable(ConstantManager.ARG_TYPE, ConstantManager.ARG_TYPE_LENGTH);

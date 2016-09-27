@@ -7,17 +7,15 @@
     <data>
         <import type="com.dmisb.creditcalc.utils.FormatUtil"/>
         <variable
-            name="calcModel"
-            type="com.dmisb.creditcalc.data.models.CalcModel"/>
+            name="payModel"
+            type="com.dmisb.creditcalc.data.models.PayModel"/>
     </data>
 
     <LinearLayout
         android:id="@+id/graphic_item"
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_medium_48"
-        android:orientation="vertical"
-        android:theme="@style/AppThemeOverlay"
-        android:background="@color/primary_50">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,7 +29,7 @@
                 android:layout_weight="0.25"
                 android:layout_marginLeft="@dimen/space_small_8"
                 android:gravity="center"
-                android:text="@{FormatUtil.periodFormat(calcModel.data)}"
+                android:text="@{FormatUtil.periodFormat(payModel.data)}"
                 app:font="@{`Roboto_Condensed`}"/>
 
             <TextView
@@ -39,7 +37,7 @@
                 style="@style/graphic_item"
                 android:layout_weight="0.4"
                 android:gravity="right|center_vertical"
-                android:text="@{FormatUtil.sumFormat(calcModel.payPercent)}"
+                android:text="@{FormatUtil.sumFormat(payModel.payPercent)}"
                 app:font="@{`Roboto_Condensed`}"/>
 
             <TextView
@@ -48,7 +46,7 @@
                 android:layout_weight="0.4"
                 android:layout_marginRight="@dimen/space_small_8"
                 android:gravity="right|center_vertical"
-                android:text="@{FormatUtil.sumFormat(calcModel.payDebt)}"
+                android:text="@{FormatUtil.sumFormat(payModel.payDebt)}"
                 app:font="@{`Roboto_Condensed`}"/>
 
         </LinearLayout>
